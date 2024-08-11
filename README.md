@@ -1,5 +1,5 @@
 CURVETOPIA: Exploring the Realm of Curved Lines
-CURVETOPIA is a robust software for finding, smoothing, and enhancing 2D curves. This tool uses smart methods to work with line sets and show results in different ways, making it great for design, art, and data display tasks.
+CURVETOPIA is a robust software for finding, smoothing, and enhancing 2D curves. This project uses smart methods to work with line sets and show results in different ways, making it great for design, art, and data display tasks.
 Main Features
 Curve Finding: Automatically spot and split curves from complex shapes.
 Smoothing: Even out curves and fix bumps to make them look consistent.
