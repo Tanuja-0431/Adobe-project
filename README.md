@@ -13,7 +13,7 @@ SVG and PNG Making: Turn processed curves into SVG and PNG types for clear visua
 Showing: Plot and display curves using matplotlib to review results before saving.
 Setup
 Copy the project and install needed parts using pip:
-git clone https://github.com/yourusername/curvescape.git
+git clone https://github.com/Tanuja-0431/Adobe-project.git
 cd curvescape
 pip install -r requirements.txt
 
