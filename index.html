@@ -11,34 +11,99 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
+            background: #f0f4f8;
+            color: #333;
+            overflow-x: hidden;
         }
         header {
-            background: #333;
-            color: #fff;
-            padding: 1rem 0;
+            background: #4a90e2;
+            color: #000; /* Black text color */
+            padding: 2rem;
             text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 20%, rgba(255,255,255,0) 80%);
+            animation: sparkle 4s infinite;
+            pointer-events: none;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        header p {
+            font-size: 1.2rem;
+            margin: 0.5rem 0 0;
         }
         section {
             padding: 2rem;
             margin: 1rem;
-            border: 1px solid #ddd;
             border-radius: 8px;
+            background: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border: 2px solid #4a90e2; /* Border color */
         }
         h2 {
-            color: #333;
+            color: #000; /* Black text color */
+            border-bottom: 2px solid #4a90e2; /* Border color */
+            padding-bottom: 0.5rem;
         }
         pre {
-            background: #f4f4f4;
-            border-left: 3px solid #333;
+            background: #f9f9f9;
+            border-left: 4px solid #4a90e2; /* Border color */
             padding: 1rem;
             overflow-x: auto;
+            border-radius: 4px;
         }
         a {
-            color: #007BFF;
+            color: #4a90e2;
             text-decoration: none;
+            font-weight: bold;
         }
         a:hover {
             text-decoration: underline;
+        }
+        footer {
+            background: #4a90e2;
+            color: #000; /* Black text color */
+            padding: 0.5rem;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .example-links {
+            list-style: none;
+            padding: 0;
+        }
+        .example-links li {
+            margin-bottom: 0.5rem;
+        }
+        .example-links a {
+            display: inline-block;
+            padding: 0.5rem;
+            border-radius: 4px;
+            background: #eaf4ff;
+            transition: background 0.3s ease;
+        }
+        .example-links a:hover {
+            background: #d0e8ff;
+        }
+
+        /* Animation for sparkles */
+        @keyframes sparkle {
+            0% { opacity: 0.1; transform: scale(1) translateY(0); }
+            50% { opacity: 0.3; transform: scale(1.1) translateY(-20px); }
+            100% { opacity: 0.1; transform: scale(1) translateY(0); }
         }
     </style>
 </head>
@@ -86,7 +151,7 @@
     <section id="examples">
         <h2>Examples</h2>
         <h3>Input Files</h3>
-        <ul>
+        <ul class="example-links">
             <li><a href="problems_main/problems/isolated.csv">Isolated Curves</a></li>
             <li><a href="problems_main/problems/frag0.csv">Fragmented Curves 0</a></li>
             <li><a href="problems_main/problems/frag1.csv">Fragmented Curves 1</a></li>
@@ -94,12 +159,12 @@
             <li><a href="problems_main/problems/occlusion2.csv">Disconnected Occlusion</a></li>
         </ul>
         <h3>Expected Output Files</h3>
-        <ul>
+        <ul class="example-links">
             <li><a href="problems_main/problems/isolated.png">Isolated Curves Solution</a></li>
             <li><a href="problems_main/problems/frag0.png">Fragmented Curves Solution 0 & 1</a></li>
             <li><a href="problems_main/problems/frag1.png">Fragmented Curves 2</a></li>
             <li><a href="problems_main/problems/occlusion1.png">Connected Occlusion Solution</a></li>
-            <li><a href="problems_main/problems/occlusiosn2.png">Disconnected Occlusion Solution</a></li>
+            <li><a href="problems_main/problems/occlusion2.png">Disconnected Occlusion Solution</a></li>
         </ul>
     </section>
 
