@@ -7,6 +7,7 @@ Enhancement: Improve curves to look better, including making them more even and 
 File Changing: Turn line sets from CSV files into SVG and PNG types to work well with other tools.
 Display: Interactive curve plotting to check and confirm changes.
 How It Works
+i have added a zip file so all the adta and code can be easily download.
 Get CSV Files: Bring in line sets from CSV files, where each row shows a path with points.
 Working: Use methods to find and smooth curves, handling things like evenness and completeness.
 SVG and PNG Making: Turn processed curves into SVG and PNG types for clear visuals.
