@@ -3,22 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Project</title>
+    <title>CURVETOPIA: A Journey into the World of Curves</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 40px;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
         }
-        h1 {
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        section {
+            padding: 2rem;
+            margin: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        h2 {
             color: #333;
         }
-        p {
-            color: #666;
+        pre {
+            background: #f4f4f4;
+            border-left: 3px solid #333;
+            padding: 1rem;
+            overflow-x: auto;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to My Project</h1>
-    <p>This is the home page of my project. Please navigate through the project documentation and files.</p>
+    <header>
+        <h1>CURVETOPIA: A Journey into the World of Curves</h1>
+        <p>Welcome to Curvetopia, where we bring order and beauty to the world of 2D curves!</p>
+    </header>
+
+    <section id="objective">
+        <h2>Objective</h2>
+        <p>Our mission is to identify, regularize, and beautify curves in 2D Euclidean space. We start with closed curves and progressively work with more complex shapes. The project also covers symmetry and curve completion techniques.</p>
+    </section>
+
+    <section id="problem-description">
+        <h2>Problem Description</h2>
+        <p>The goal is to convert a PNG (raster) image of line art into a set of curves defined as cubic Bézier curves. Initially, we simplify the task by using polylines, which are sequences of points. The challenge involves regularizing, symmetrizing, and completing these curves.</p>
+    </section>
+
+    <section id="approach">
+        <h2>Approach</h2>
+        <h3>1. Regularize Curves</h3>
+        <p>Identify regular shapes such as:</p>
+        <ul>
+            <li>Straight lines</li>
+            <li>Circles and Ellipses</li>
+            <li>Rectangles and Rounded Rectangles</li>
+            <li>Regular Polygons</li>
+            <li>Star Shapes</li>
+        </ul>
+
+        <h3>2. Exploring Symmetry in Curves</h3>
+        <p>Identify symmetry in closed shapes, focusing on reflection and rotational symmetries.</p>
+
+        <h3>3. Completing Incomplete Curves</h3>
+        <p>Develop algorithms to complete gaps in curves caused by occlusions, with varying levels of complexity.</p>
+    </section>
+
+    <section id="visualization">
+        <h2>Visualization</h2>
+        <p>Results are visualized using SVG format, and output curves are converted to cubic Bézier curves. Sample visualizations and code snippets are provided for reference.</p>
+        <p><a href="https://drive.google.com/file/d/1kuIFFTIpFePNNEKth0er57Ydx6xHCZNh/view?usp=sharing" target="_blank">Watch the Demo Video</a></p>
+    </section>
+
+    <section id="examples">
+        <h2>Examples</h2>
+        <h3>Input Files</h3>
+        <ul>
+            <li><a href="problems_main/problems/isolated.csv">Isolated Curves</a></li>
+            <li><a href="problems_main/problems/frag0.csv">Fragmented Curves 0</a></li>
+            <li><a href="problems_main/problems/frag1.csv">Fragmented Curves 1</a></li>
+            <li><a href="problems_main/problems/occlusion1.csv">Connected Occlusion</a></li>
+            <li><a href="problems_main/problems/occlusion2.csv">Disconnected Occlusion</a></li>
+        </ul>
+        <h3>Expected Output Files</h3>
+        <ul>
+            <li><a href="problems_main/problems/isolated.png">Isolated Curves Solution</a></li>
+            <li><a href="problems_main/problems/frag0.png">Fragmented Curves Solution 0 & 1</a></li>
+            <li><a href="problems_main/problems/frag1.png">Fragmented Curves 2</a></li>
+            <li><a href="problems_main/problems/occlusion1.png">Connected Occlusion Solution</a></li>
+            <li><a href="problems_main/problems/occlusiosn2.png">Disconnected Occlusion Solution</a></li>
+        </ul>
+    </section>
+
+    <section id="code">
+        <h2>Sample Code</h2>
+        <h3>Reading CSV Files</h3>
+        <pre><code>import numpy as np
+def read_csv(csv_path):
+    np_path_XYs = np.genfromtxt(csv_path, delimiter=',')
+    path_XYs = []
+    for i in np.unique(np_path_XYs[:, 0]):
+        npXYs = np_path_XYs[np_path_XYs[:, 0] == i][:, 1:]
+        XYs = []
+        for j in np.unique(npXYs[:, 0]):
+            XY = npXYs[npXYs[:, 0] == j][:, 1:]
+            XYs.append(XY)
+        path_XYs.append(XYs)
+    return path_XYs</code></pre>
+
+        <h3>Visualization</h3>
+        <pre><code>import numpy as np
+import matplotlib.pyplot as plt
+def plot(paths_XYs):
+    fig, ax = plt.subplots(tight_layout=True, figsize=(8, 8))
+    for i, XYs in enumerate(paths_XYs):
+        c = colours[i % len(colours)]
+        for XY in XYs:
+            ax.plot(XY[:, 0], XY[:, 1], c=c, linewidth=2)
+    ax.set_aspect('equal')
+    plt.show()</code></pre>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Tanuja Team. All rights reserved.</p>
+    </footer>
 </body>
 </html>
